@@ -121,42 +121,6 @@
     color: grey;
     transition: color 0.3s ease 0s; 
 }
-/*.navigation a li {
-    display: table-cell;
-    vertical-align: middle;
-    height: 100%;
-    color: white;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 13px;
-    position: relative;
-}
-
-.navigation a li::before {
-    content: attr(data-text);
-    position: absolute;
-    z-index: 1;
-    color: rgb(49, 49, 49); 
-    font-size: 13.1px;
-    background-color: transparent; 
-    pointer-events: none;
-    white-space: nowrap;
-    width: 0;
-    overflow: hidden;
-
-    transition: width 0.4s ease-out;
-}
-
-.navigation a li:hover::before {
-    width: 100%;
-}*/
-
-
-
-
-/* Body */
-body {
-    /* background: rgb(222, 221, 221); */
-}
 
 .homepage-container {
     height: 90vh;
@@ -209,10 +173,6 @@ body {
     padding-top: 10px;
 }
 
-/* 
-    For the following button. I used a video-guide to get the animation moving as it does.
-    Citation: https://www.youtube.com/watch?v=w0V4HAYYCbU&t=64s
-*/
 .button-get-started {
     margin: 0;
     padding: 0;
@@ -412,15 +372,15 @@ body {
     padding-bottom: 11px;
 }
 
-.good, .new {
+.Good, .New {
     color: rgb(3, 255, 3);
 }
 
-.fair {
+.Fair {
     color: orange;
 }
 
-.poor, .broken {
+.Poor, .Broken {
     color: red;
 }
 
@@ -432,17 +392,6 @@ body {
     gap: 35px;
     margin-top: auto;
 }
-
-/* Item Page */
-/* .detailed-item-page {
-    display: flex;
-    flex-direction: column;
-    width: 400px;
-    background: grey;
-    border: 3.4px solid black;
-    border-radius: 12px;
-    box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.473);
-} */
 
 .detailed-item-page {
     display: flex;

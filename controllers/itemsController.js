@@ -1,6 +1,9 @@
-// GET -> /items : sent all items
+const model = require('../models/item');   
+
 exports.index = (req,res)=>{
-    res.send('Items page');
+    // res.send('Items page');
+    let items = model.find();
+    res.render('./item/index.ejs', {items});
 };
 
 exports.new = (req,res)=>{

@@ -1,0 +1,29 @@
+<%- include('../partials/header.ejs') %>
+
+<div class="items-page">
+    <div class="consoles-container">
+        <div class="console">
+            <% if (items.length) { %>
+                <h1 class="console-title">AVAILABLE GAMES:</h1>
+                <div class="games">
+                    <% items.forEach(item => { %>
+                        <a href="/items/<%= item.id %>" class="game">
+                            <img src="images/game-covers/<%= item.image %>" alt="halo infinite game-cover" width="150" height="225">
+                            <h4><%= item.title %></h4>
+                            <p class="condition <%= item.condition %>"><%= item.condition %></p>
+                            <p class="console-type"><%= item.console %></p>
+                            <div class="price-offer">
+                                <p>$<%= item.price %></p>
+                                <p><%= item.offers %> Offers</p>
+                            </div>
+                        </a>
+                    <% }) %>
+                </div>
+            <% } else { %>
+                <h1 class="console-title">NO AVAILABLE GAMES</h1>
+            <% } %>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer.ejs') %>

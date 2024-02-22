@@ -1,45 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-    <head>
-        <title>RetroReplay</title>
-        <meta charset="UTF-8">
-        <link rel="icon" type="image/x-icon" href="/images/joystick.png">
-        <meta name="author" content="Landon Nalewaja">
-        <script src="https://kit.fontawesome.com/a657967bb7.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="/css/style.css">
-        <script src="scripts/index.js" defer></script>
-    </head>
-        
-    <body>
-        <div class="header">
-            <div class="inner-header">
-                <div class="logo-container">
-                    <a href="/"><h1>RETRO<span>REPLAYS</span></h1></a>
-                </div>
-
-                <div class="search-container">
-                    <form action="#">
-                        <div class="search">
-                            <span class="search-icon material-symbols-outlined">search</span>
-                            <input class="search-input" type="search" placeholder="Search . . .">
-                        </div>
-                    </form>
-                </div>
-
-                <ul class="navigation">
-                    <li><a href="/items" data-text="BROWSE">BROWSE</a></li>
-                    <li><a href="/items/new" data-text="SELL">SELL</a></li>
-                    <li><a href="" data-text="SIGN-UP">SIGN-UP</a></li>
-                    <li><a href="" data-text="LOGIN">LOGIN</a></li>
-                </ul>
-
-            </div>
-        </div>
+<%- include('./partials/header.ejs') %>
 
         <main class="homepage-container">
             <div class="about-us-container">
@@ -59,13 +18,4 @@
             <img src="/images/Halo_Infinite_master_chief.webp" class="halo-image-container" alt="masterchief png" height="800" width="800">
         </main>
 
-        <footer>
-            <p class="copyRight">&copy;2024 RetroReplays. All rights reserved.</p>
-            <div class="socials">
-                <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-            </div>
-        </footer>
-    </body>
-</html>
+<%- include('./partials/footer.ejs') %>
