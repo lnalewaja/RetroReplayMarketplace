@@ -1,0 +1,27 @@
+<%- include('../partials/header.ejs') %>
+
+<div class="detailed-item-page">
+    <div class="detailed-item-container">
+        <img src="/images/game-covers/<%= item.image %>" alt="" width="400" height="600">
+        <div class="game-content">
+            <h1><%= item.title %></h1>
+            <p class="price">Seller:  <span><%= item.seller %></span></p>
+            <p class="price">Listed At:  <span><%= item.listedAt %></span></p>
+            <p class="price">Condition:  <span class="condition <%= item.condition %>"><%= item.condition %></span></p>
+            <p class="price">Platform:  <%= item.console %></p>
+            <p class="price">Price:  <span>$<%= item.price %></span> | <%= item.offers %> Offers</p>
+            <p class="description" style="text-align: center;">
+                <%= item.content %>
+            </p>
+            <div class="edit-delete">
+                <form>
+                    <button type="submit" formmethod="get" formaction="/items/<%= item.id %>/edit">Edit</button>
+                    <button type="submit" formmethod="post" formaction="/items/<%= item.id %>?_method=DELETE">Delete</button>
+                </form>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer.ejs') %>

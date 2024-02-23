@@ -1,31 +1,84 @@
 const model = require('../models/item');   
 
-exports.index = (req,res)=>{
-    // res.send('Items page');
-    let items = model.find();
-    res.render('./item/index.ejs', {items});
+exports.index = (req,res, next)=>{
+    let items;
+    if (req.query.search) {
+        items = model.search(req.query.search);
+        if (items.length !== 0) {
+            res.render('./item/index.ejs', {items});
+        } else {
+            let err = new Error('Listing not found');
+            err.status = 404;
+            next(err);
+        }    
+    } else {
+        items = model.find();
+        res.render('./item/index.ejs', {items});
+    }
 };
 
 exports.new = (req,res)=>{
-    res.send('send the new item');
+    res.render('./item/new.ejs');
 };
+
+exports.search = (req, res) => {
+    let searched = req.params.item; 
+    console.log('Hello');
+    console.log(searched);
+    let items = model.search(searched);
+    res.render('./item/index.ejs', {items});
+}
 
 exports.create = (req,res)=>{
-    res.send('Created a new story');
+    let item = req.body;
+    model.save(item);
+    res.redirect('/items');
 };
 
-exports.show = (req,res)=>{
-    res.send('Send story with id ' + req.params.id);
+exports.show = (req,res,next)=>{
+    let id = req.params.id;
+    let item = model.findById(id);
+    if (item) {
+        res.render('./item/show.ejs', {item});
+    } else {
+        let err = new Error('Cannot find listing with id ' + id);
+        err.status = 404;
+        next(err);
+    }
 };
 
-exports.edit = (req,res)=>{
-    res.send('send the edit item form');
+exports.edit = (req,res,next)=>{
+    let id = req.params.id;
+    let item = model.findById(id);
+    if (item) {
+        res.render('./item/edit', {item});
+    } else {
+        let err = new Error('Cannot find listing with id ' + id);
+        err.status = 404;
+        next(err);
+    }
 };
 
-exports.update = (req,res)=>{
-    res.send('Update story with id ' + req.params.id);
+exports.update = (req,res,next)=>{
+    let item = req.body;
+    let id = req.params.id
+    if (model.updateById(id, item)) {
+        res.redirect('/items/' + id);
+    } else {
+        let err = new Error('Cannot find listing with id ' + id);
+        err.status = 404;
+        next(err);
+    }
 };
 
-exports.delete = (req,res)=>{
-    res.send('Delete story with id ' + req.params.id);
+exports.delete = (req,res,next)=>{
+    let id = req.params.id;
+    console.log(id);
+    if (model.deleteByID(id)) {
+        res.redirect('/items');
+    } else {
+        let err = new Error('Cannot find listing with id ' + id);
+        err.status = 404;
+        next(err);
+    }
 };

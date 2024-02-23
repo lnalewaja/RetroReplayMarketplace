@@ -1,0 +1,54 @@
+<%- include('../partials/header.ejs') %>
+
+<div class="selling-page">
+    <div class="new-listing-container">
+        <h2>RETRO<span>REPLAYS</span></h2>
+        <h2 class="underline">LIST YOUR ITEM HERE:</h2>
+        <form action="/items" method="post">
+            <div class="row center">
+                <label for="title">Game Title:</label>
+                <input type="text" id="title" name="title" placeholder="Type here..." required>
+            </div>
+            <div class="row center">
+                <label for="seller">Seller Name:</label>
+                <input type="text" id="seller" name="seller" placeholder="Type here..." required>
+            </div>
+            <div class="row">
+                <label for="price">Price: </label>
+                <input type="number" id="price" name="price" step="0.01" placeholder="$00.00" min="000.00" max="999.99" required>
+            </div>
+            <div class="row">
+                <label for="console">Platform: </label>
+                <select name="console" id="console" required>
+                    <option value="" disabled selected>Select a Platform...</option>
+                    <option value="Playstation 5">Playstation 5</option>
+                    <option value="Xbox Series X">Xbox Series X</option>
+                    <option value="Nintendo Switch">Nintendo Switch</option>
+                    <option value="Wii U">Wii U</option>
+                </select>
+            </div>
+            <div class="row">
+                <label for="condition">Condition: </label>
+                <select name="condition" id="condition" required>
+                    <option value="" disabled selected>Select a Condition...</option>
+                    <option value="New">New</option>
+                    <option value="Good">Good</option>
+                    <option value="Fair">Fair</option>
+                    <option value="Poor">Poor</option>
+                    <option value="Broken">Broken</option>
+                </select>
+            </div>
+            <div class="row center">
+                <label for="content">Video Game Details:</label>
+                <textarea id="content" name="content" placeholder="Type Here..." rows="4" cols="50" required></textarea>
+            </div>
+            <div class="row upld">
+                <label for="image">Upload Game Cover:</label>
+                <input type="file" id="image" name="image" accept="images/game-covers/*" required>
+            </div>
+            <input type="submit" value="SUBMIT">
+        </form>
+    </div>
+</div>
+
+<%- include('../partials/footer.ejs') %>

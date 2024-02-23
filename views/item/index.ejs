@@ -8,7 +8,7 @@
                 <div class="games">
                     <% items.forEach(item => { %>
                         <a href="/items/<%= item.id %>" class="game">
-                            <img src="images/game-covers/<%= item.image %>" alt="halo infinite game-cover" width="150" height="225">
+                            <img src="/images/game-covers/<%= item.image %>" alt="halo infinite game-cover" width="150" height="225">
                             <h4><%= item.title %></h4>
                             <p class="condition <%= item.condition %>"><%= item.condition %></p>
                             <p class="console-type"><%= item.console %></p>
