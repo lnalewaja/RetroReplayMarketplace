@@ -6,8 +6,6 @@ const controller = require('../controllers/itemsController');
 // GET -> /items : sent all items
 router.get('/', controller.index);
 
-router.get('/search=', controller.search);
-
 // GET -> /items/new
 router.get('/new', controller.new);
 

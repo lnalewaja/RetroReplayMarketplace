@@ -5,6 +5,7 @@ exports.index = (req,res, next)=>{
     if (req.query.search) {
         items = model.search(req.query.search);
         if (items.length !== 0) {
+            model.sortList();
             res.render('./item/index.ejs', {items});
         } else {
             let err = new Error('Listing not found');
@@ -13,6 +14,7 @@ exports.index = (req,res, next)=>{
         }    
     } else {
         items = model.find();
+        model.sortList();
         res.render('./item/index.ejs', {items});
     }
 };

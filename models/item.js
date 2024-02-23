@@ -105,6 +105,10 @@ exports.save = function(item) {
     items.sort((itemA, itemB) => parseFloat(itemA.price) - parseFloat(itemB.price));
 }
 
+exports.sortList = function() {
+    items.sort((itemA, itemB) => parseFloat(itemA.price) - parseFloat(itemB.price));
+}
+
 exports.updateById = function(id, newItem) {
     let item = items.find(item => item.id === id);
     if (item) {
